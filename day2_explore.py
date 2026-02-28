@@ -5,7 +5,7 @@ import numpy as np
 import os
 
 # ---- SETTINGS ----
-DATASET_PATH = "C:/projects/Music-Genre-Classification-/my_music"
+DATASET_PATH = "C:/Users/Katyayani Verma/OneDrive/Desktop/my_music"
 GENRES = ["rock", "classical", "rap", "western_pop", "bollywood_romantic"]
 
 # ---- STEP 1: Load one audio file ----
