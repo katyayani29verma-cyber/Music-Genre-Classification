@@ -76,3 +76,9 @@ plt.xlabel("Predicted Genre")
 plt.tight_layout()
 plt.savefig("confusion_matrix_rf.png")
 plt.show()
+
+import joblib
+
+# Save the model
+joblib.dump(rf_model, "random_forest_model.pkl")
+print("Model saved! ✅")
