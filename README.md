@@ -28,7 +28,7 @@ Wavely is a Music Genre Classification system that uses Machine Learning to iden
 | Day 2 | Waveform Visualization | ✅ Done |
 | Day 3 | Spectrogram Generation | ✅ Done |
 | Day 4 | Dataset Building & Balancing | ✅ Done |
-| Day 5 | First Model - Random Forest | 🔄 In Progress |
+| Day 5 | First Model - Random Forest | ✅ Done |
 | Day 6 | Deep Learning - CNN Model | ⏳ Upcoming |
 | Day 7 | Model Evaluation & Improvement | ⏳ Upcoming |
 | Day 8 | Web Application (Flask) | ⏳ Upcoming |
