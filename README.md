@@ -59,3 +59,18 @@ Upgrading to a Convolutional Neural Network since spectrograms are essentially i
 ---
 
 ## 📁 Project Structure
+
+
+
+---
+
+## 📊 Dataset
+
+- **5 genres** — Rock, Classical, Rap, Western Pop, Bollywood Romantic
+- **180 clips per genre** — balanced dataset
+- **900 total clips** — each 30 seconds long
+- **Features** — Mel Spectrograms (128 × 1292)
+
+---
+
+*Built with 🎵 and lots of debugging*
