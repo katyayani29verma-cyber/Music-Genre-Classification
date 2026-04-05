@@ -97,3 +97,24 @@ model = Sequential([
 ])
 
 model.summary()
+
+# ---- STEP 4: Compile the model ----
+model.compile(
+    optimizer='adam',           # adam adjusts learning rate automatically
+    loss='categorical_crossentropy',  # standard loss for multi-class problems
+    metrics=['accuracy']        # track accuracy during training
+)
+
+# ---- STEP 5: Train the model ----
+print("\nTraining CNN...")
+print("This will take 10-30 minutes, please wait...\n")
+
+history = model.fit(
+    X_train, y_train,
+    epochs=30,              # pass through ALL training data 30 times
+    batch_size=16,          # learn from 16 clips at a time
+    validation_split=0.1,   # use 10% of training data to monitor progress
+    verbose=1               # print progress for each epoch
+)
+
+print("\nTraining Complete! ✅")
