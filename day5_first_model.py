@@ -4,6 +4,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
+import joblib
 
 # ---- SETTINGS ----
 GENRES = ["rock", "classical", "rap", "western_pop", "bollywood_romantic"]
@@ -75,9 +76,11 @@ plt.ylabel("Actual Genre")
 plt.xlabel("Predicted Genre")
 plt.tight_layout()
 plt.savefig("confusion_matrix_rf.png")
-plt.show()
+#plt.show()
+plt.savefig("confusion_matrix_rf.png")
+plt.close()  # closes the plot automatically without needing you to close it
+print("Confusion matrix saved! ✅")
 
-import joblib
 
 # Save the model
 joblib.dump(rf_model, "random_forest_model.pkl")
