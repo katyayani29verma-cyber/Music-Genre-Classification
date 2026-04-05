@@ -1,0 +1,20 @@
+# Audio files - too heavy for git
+my_music/
+
+# Large numpy dataset files
+X_features.npy
+y_labels.npy
+X_balanced.npy
+y_balanced.npy
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+.png

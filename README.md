@@ -1,0 +1,1 @@
+# Music Genre Classification | Classifying music into 5 genres (Rock, Classical, Rap, Western Pop, Bollywood Romantic) using Audio Feature Extraction and Machine Learning.
