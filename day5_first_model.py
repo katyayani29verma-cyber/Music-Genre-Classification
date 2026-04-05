@@ -48,3 +48,31 @@ rf_model = RandomForestClassifier(
 rf_model.fit(X_train, y_train)
 
 print("Training complete! ✅")
+# ---- STEP 5: Test the model ----
+print("\nTesting model...")
+
+# Make predictions on test data (180 clips model never seen before)
+y_pred = rf_model.predict(X_test)
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy * 100:.2f}%")
+
+# Detailed breakdown per genre
+print("\nDetailed Report:")
+print(classification_report(y_test, y_pred, target_names=GENRES))
+
+# ---- STEP 6: Confusion Matrix ----
+cm = confusion_matrix(y_test, y_pred)
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm, annot=True, fmt='d', 
+            xticklabels=GENRES, 
+            yticklabels=GENRES,
+            cmap='Blues')
+plt.title("Confusion Matrix - Random Forest")
+plt.ylabel("Actual Genre")
+plt.xlabel("Predicted Genre")
+plt.tight_layout()
+plt.savefig("confusion_matrix_rf.png")
+plt.show()
