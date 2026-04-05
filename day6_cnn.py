@@ -46,3 +46,54 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 print(f"Training samples: {len(X_train)}")
 print(f"Testing samples: {len(X_test)}")
+
+# ---- STEP 3: Build the CNN ----
+model = Sequential([
+    
+    # --- Block 1: First set of filters ---
+    Conv2D(32, (3,3), activation='relu', padding='same', input_shape=(128, 1292, 1)),
+    # 32 filters, each 3x3 pixels, scanning the spectrogram for basic patterns
+    
+    BatchNormalization(),
+    # Stabilizes the numbers after convolution
+    
+    MaxPooling2D((2,2)),
+    # Shrinks the image by half (128x1292 → 64x646)
+    # Keeps the most important features, reduces computation
+    
+    # --- Block 2: More complex patterns ---
+    Conv2D(64, (3,3), activation='relu', padding='same'),
+    # 64 filters now — looking for more complex patterns
+    
+    BatchNormalization(),
+    
+    MaxPooling2D((2,2)),
+    # Shrinks again (64x646 → 32x323)
+    
+    # --- Block 3: Even more complex ---
+    Conv2D(128, (3,3), activation='relu', padding='same'),
+    # 128 filters — finding very complex genre-specific patterns
+    
+    BatchNormalization(),
+    
+    MaxPooling2D((2,2)),
+    # Shrinks again (32x323 → 16x161)
+    
+    # --- Flatten and Decide ---
+    Flatten(),
+    # Converts 2D feature maps into 1D — same as Random Forest flattening!
+    
+    Dense(256, activation='relu'),
+    # Fully connected layer — combines all patterns to make decision
+    
+    Dropout(0.5),
+    # Randomly turns off 50% of neurons during training
+    # Prevents overfitting — forces model to not rely on any single neuron
+    
+    Dense(NUM_CLASSES, activation='softmax')
+    # Output layer — 5 neurons, one per genre
+    # Softmax converts to probabilities that add up to 100%
+    # e.g. [0.05, 0.02, 0.85, 0.05, 0.03] → RAP with 85% confidence!
+])
+
+model.summary()
